@@ -84,6 +84,4 @@
 				<font color="#e62c2c">3</font>
 				<font color="#e60101">1</font>
 				<font color="#e60101">4</font></b>
-</marquee><p align="center"><img src="https://img-blog.csdnimg.cn/f7384c88956d4378b72e47548e19c9f8.gif" alt="f7384c88956d4378b72e47548e19c9f8.gif" width="50" /></p><p align="center">
-
-</p>
+</marquee>
