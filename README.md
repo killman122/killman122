@@ -45,11 +45,6 @@
 
 
 
-<p align = "center">
-
- <img src="https://activity-graph.herokuapp.com/graph?username=killman122&theme=redical">
-
-</p> 
 
 [![Ashutosh's github activity graph](https://github-readme-activity-graph.cyclic.app/graph?username=killman122&theme=rogue)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
