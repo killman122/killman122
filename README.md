@@ -64,24 +64,4 @@
 
 
 <p>
-<marquee><b><font color="#e66b6d">L</font>
-				<font color="#e66d98">I</font>
-				<font color="#e66cc6">T</font>
-				<font color="#cc6de6">T</font>
-				<font color="#9770e6">L</font>
-				<font color="#6d93e6">E</font>
-				<font color="#6fcde6">X</font>
-				<font color="#72e6b6">I</font>
-				<font color="#72e689">N</font>
-				<font color="#99e670">G</font>
-				<font color="#cde670">z</font>
-				<font color="#e6df72">z</font>
-				<font color="#e6c073">Z</font>
-				<font color="#e6a271">5</font>
-				<font color="#e6796f">2</font>
-				<font color="#e65454">0</font>
-				<font color="#e63333">1</font>
-				<font color="#e62c2c">3</font>
-				<font color="#e60101">1</font>
-				<font color="#e60101">4</font></b>
-</marquee>
+
