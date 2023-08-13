@@ -70,7 +70,8 @@ def 得物商品监控():
             global 消息内容
             消息内容 += i['spuName'] + '价格=' + str(int(i['discountPrice']) / 100) + '\n'
     print(消息内容)
-    推送()
+    if 消息内容!= '':    
+        推送()
 
     # for i in list0:
     #     if i['discountPrice'] <= 4000 and i['status'] == 11:
