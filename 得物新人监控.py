@@ -10,7 +10,7 @@ import json
 token = '126c2e9648f244ba91ac33a03a6e1bde'
 ua = UserAgent().random
 消息内容 = ''
-
+mail_subject = ''
 
 def send_message():
     username = "wjr2483484885@gmail.com"
@@ -96,7 +96,10 @@ def 得物商品查询(lastSpuId):
         if i['discountPrice'] <= 4000 and i['status'] == 11:
             # print(i)
             global 消息内容
+            global mail_subject
             消息内容 += i['spuName'] + '价格=' + str(int(i['discountPrice']) / 100) + '\n'
+            if i['discountPrice'] == 0:
+                mail_subject = '免单出现,注意抢购'
     print(消息内容)
 
 
@@ -143,7 +146,10 @@ def 得物商品监控():
         if i['discountPrice'] <= 4000 and i['status'] == 11:
             # print(i)
             global 消息内容
+            global mail_subject
             消息内容 += i['spuName'] + '价格=' + str(int(i['discountPrice']) / 100) + '\n'+'\r'
+            if i['discountPrice'] == 0:
+                mail_subject = '免单出现,注意抢购'
     # print(消息内容)
     # print(list0[-1])
     lastSpuId = list0[-1]['spuId']
