@@ -1,11 +1,31 @@
 import requests
 from fake_useragent import UserAgent
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 token = '126c2e9648f244ba91ac33a03a6e1bde'
 ua = UserAgent().random
 消息内容 = ''
 
+def send_message():
+    username = "wjr2483484885@gmail.com"
+    password = "mreqbrbcpsaeloma"
+    mail_from = "wjr2483484885@gmail.com"
+    mail_to = "2483484885@qq.com"
+    mail_subject = "得物商品上新"
+    mail_body = 消息内容
 
+    mimemsg = MIMEMultipart()
+    mimemsg['From']=mail_from
+    mimemsg['To']=mail_to
+    mimemsg['Subject']=mail_subject
+    mimemsg.attach(MIMEText(mail_body, 'plain'))
+    connection = smtplib.SMTP(host='smtp.gmail.com', port=587)
+    connection.starttls()
+    connection.login(username,password)
+    connection.send_message(mimemsg)
+    connection.quit()
 # print(ua)
 # 有时需要在请求中添加转义字符,可能请求体中的像是字典,实际上是一个字符串
 def 推送():
@@ -70,8 +90,8 @@ def 得物商品监控():
             global 消息内容
             消息内容 += i['spuName'] + '价格=' + str(int(i['discountPrice']) / 100) + '\n'
     print(消息内容)
-    if 消息内容!= '':    
-        推送()
+    # 推送()
+    send_message()
 
     # for i in list0:
     #     if i['discountPrice'] <= 4000 and i['status'] == 11:
@@ -83,6 +103,4 @@ def 得物商品监控():
 
 
 # 推送()
-
-if __name__ == '__main__':
-    得物商品监控()
+得物商品监控()
