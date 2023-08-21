@@ -61,13 +61,13 @@ def 得物商品查询(lastSpuId):
         'SK': '9JgSKkxfRab52YsrdOjH54LecF84HNlf5diZf1Bar21LuO2dT61f7BMr3jx71zpgBz2FenzLWbqdN4ucytOKTa9FJr1u',
         'shumeiId': '202206201105599577aec2d8302d653009c385871e64ef01dab1c9dbe482cd',
         'deviceTrait': 'Redmi+Note+8+Pro',
-        'x-auth-token': 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTE4OTc3MjIsImV4cCI6MTcyMzQzMzcyMiwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTkzMTk0ODA5NywidXNlck5hbWUiOiLlvpfniallci0xSzRRNE04QyIsImlzR3Vlc3QiOmZhbHNlfQ.Ed3s-Om1NfYLpLfAlZmKjhPXFGjauVgCaTzurk_0aNd9DLDrxSAmEISb1kcqGENG0o9k4TXbFuw4OKvXFneATxkRYa9Z-b3rtBJyBh3YJvD5jWIM0DE0yggjuEWC7aTGEdjKc4hWlyOXcIeqQ1LUQ4-wPty-y6vUb1jYMMyuNHpUIQUArMWRz6jrUVZIKuZEujCwQCvgEnIjjmc4dUFC-fgy4J95FPT36jcq7BSmNzsf9xmjvRTnu8DX-FNvkfP11yZaHXQX3ujrO97CBCZurzuGAVbp3UCYY_uflgcFpPbudzYYGBQ8XZgTYg2sZ9ARhndWT95qIZI8ZqgfRXwJJA',
+        'x-auth-token': 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTI2MjI0MjgsImV4cCI6MTcyNDE1ODQyOCwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTk0MDQzNzM0NywiaXNHdWVzdCI6ZmFsc2V9.dXTHbATPSxEpAVhg7jrtupTQDS3DzJPgFXtc7IQ1HKjlKniwjgjYT92YWcn76-fN3DgfJs0ElqOFhdtynzfkPJA0z3GYldBZi3o4gOhish4xbhgeVZ_C64Y4lKMGHFiwrtBke7NDaz8Es0dy13WcsA-VfRHA2kiuA7DMuqwHJ7oHXXzXiWPiMMiM7URme8I7ywnuustM-5z8nN4a2j3__nnvDbNyelkGa7g6FLCvX7EFYGmL9iwVzeHBDEKyxyDfY7rFRQBEYh-p6tB0ymBO4t5ba4ZQ2dF2mtxWgieJ3NItbQcXM6JDSvXbZ4bfV_BphnBFalbnMrbJ9F_pB7K2Pw',
         'uuid': 'df66e508f3bcffd3',
         'channel': 'du',
         'duToken': 'd41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
         'appVersion': '5.22.3',
         'emu': '0',
-        'cookieToken': 'd41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
+        'cookieToken': 'd41d8cd9|1940437347|1692622428|89247580441d037d',
         'User-Agent': 'Mozilla/5.0 (Linux; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.141 Mobile Safari/537.36/duapp/5.22.3(android;11)',
         'isRoot': '0',
         'imei': '',
@@ -81,7 +81,7 @@ def 得物商品查询(lastSpuId):
         'Sec-Fetch-Dest': 'empty',
         'Referer': 'https://m.dewu.com/h5-newbie/super-deal-product',
         'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Cookie': 'duToken=d41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
+        'Cookie': 'duToken=d41d8cd9|1940437347|1692622428|89247580441d037d',
         'Content-Type': 'application/json'
     }
     # data = "{\"pageSize\":40,\"brandSpuId\":null}"
@@ -91,16 +91,22 @@ def 得物商品查询(lastSpuId):
     res = requests.post(url=url, data=payload, headers=headers)
     # print(res.json())
     res_json = res.json()
-    list0 = res_json["data"]["spuList"]
-    for i in list0:
-        if i['discountPrice'] <= 4000 and i['status'] == 11:
-            # print(i)
-            global 消息内容
-            global mail_subject
-            消息内容 += i['spuName'] + '价格=' + str(int(i['discountPrice']) / 100) + '\n'
-            if i['discountPrice'] == 0:
-                mail_subject = '免单出现,注意抢购'
-    print(消息内容)
+    if res_json["data"]!= None:
+        list0 = res_json["data"]["spuList"]
+        for i in list0:
+            if i['discountPrice'] <= 4000 and i['status'] == 11:
+                # print(i)
+                global 消息内容
+                global mail_subject
+                消息内容 += i['spuName'] + '价格=' + str(int(i['discountPrice']) / 100) + '\n'
+                if i['discountPrice'] == 0:
+                    mail_subject = '免单出现,注意抢购'
+        print(消息内容)
+        lastSpuId = list0[-1]['spuId']
+        print(f'输出最后一个id用作最后的商品查询{lastSpuId}')
+        得物商品查询(lastSpuId)
+    else:
+        send_message() # 当res_json["data"] 是 None时,执行send_message函数并结束此函数
 
 
 def 得物商品监控():
@@ -113,13 +119,13 @@ def 得物商品监控():
         'SK': '9JgSKkxfRab52YsrdOjH54LecF84HNlf5diZf1Bar21LuO2dT61f7BMr3jx71zpgBz2FenzLWbqdN4ucytOKTa9FJr1u',
         'shumeiId': '202206201105599577aec2d8302d653009c385871e64ef01dab1c9dbe482cd',
         'deviceTrait': 'Redmi+Note+8+Pro',
-        'x-auth-token': 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTE4OTc3MjIsImV4cCI6MTcyMzQzMzcyMiwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTkzMTk0ODA5NywidXNlck5hbWUiOiLlvpfniallci0xSzRRNE04QyIsImlzR3Vlc3QiOmZhbHNlfQ.Ed3s-Om1NfYLpLfAlZmKjhPXFGjauVgCaTzurk_0aNd9DLDrxSAmEISb1kcqGENG0o9k4TXbFuw4OKvXFneATxkRYa9Z-b3rtBJyBh3YJvD5jWIM0DE0yggjuEWC7aTGEdjKc4hWlyOXcIeqQ1LUQ4-wPty-y6vUb1jYMMyuNHpUIQUArMWRz6jrUVZIKuZEujCwQCvgEnIjjmc4dUFC-fgy4J95FPT36jcq7BSmNzsf9xmjvRTnu8DX-FNvkfP11yZaHXQX3ujrO97CBCZurzuGAVbp3UCYY_uflgcFpPbudzYYGBQ8XZgTYg2sZ9ARhndWT95qIZI8ZqgfRXwJJA',
+        'x-auth-token': 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTI2MjI0MjgsImV4cCI6MTcyNDE1ODQyOCwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTk0MDQzNzM0NywiaXNHdWVzdCI6ZmFsc2V9.dXTHbATPSxEpAVhg7jrtupTQDS3DzJPgFXtc7IQ1HKjlKniwjgjYT92YWcn76-fN3DgfJs0ElqOFhdtynzfkPJA0z3GYldBZi3o4gOhish4xbhgeVZ_C64Y4lKMGHFiwrtBke7NDaz8Es0dy13WcsA-VfRHA2kiuA7DMuqwHJ7oHXXzXiWPiMMiM7URme8I7ywnuustM-5z8nN4a2j3__nnvDbNyelkGa7g6FLCvX7EFYGmL9iwVzeHBDEKyxyDfY7rFRQBEYh-p6tB0ymBO4t5ba4ZQ2dF2mtxWgieJ3NItbQcXM6JDSvXbZ4bfV_BphnBFalbnMrbJ9F_pB7K2Pw',
         'uuid': 'df66e508f3bcffd3',
         'channel': 'du',
         'duToken': 'd41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
         'appVersion': '5.22.3',
         'emu': '0',
-        'cookieToken': 'd41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
+        'cookieToken': 'd41d8cd9|1940437347|1692622428|89247580441d037d',
         'User-Agent': 'Mozilla/5.0 (Linux; Android 11; Redmi Note 8 Pro Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.141 Mobile Safari/537.36/duapp/5.22.3(android;11)',
         'isRoot': '0',
         'imei': '',
@@ -133,7 +139,7 @@ def 得物商品监控():
         'Sec-Fetch-Dest': 'empty',
         'Referer': 'https://m.dewu.com/h5-newbie/super-deal-product',
         'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Cookie': 'duToken=d41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
+        'Cookie': 'duToken=d41d8cd9|1940437347|1692622428|89247580441d037d',
         'Content-Type': 'application/json'
     }
     data = "{\"pageSize\":40,\"brandSpuId\":null}"
