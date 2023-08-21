@@ -162,7 +162,7 @@ def 得物商品监控():
     print(f'输出最后一个id用作最后的商品查询{lastSpuId}')
     得物商品查询(lastSpuId)
     # 推送()
-    send_message()
+    # send_message()
 
     # for i in list0:
     #     if i['discountPrice'] <= 4000 and i['status'] == 11:
