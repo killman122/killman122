@@ -61,10 +61,10 @@ def 得物商品查询(lastSpuId):
         'SK': '9JgSKkxfRab52YsrdOjH54LecF84HNlf5diZf1Bar21LuO2dT61f7BMr3jx71zpgBz2FenzLWbqdN4ucytOKTa9FJr1u',
         'shumeiId': '202206201105599577aec2d8302d653009c385871e64ef01dab1c9dbe482cd',
         'deviceTrait': 'Redmi+Note+8+Pro',
-        'x-auth-token': 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTI2MjI0MjgsImV4cCI6MTcyNDE1ODQyOCwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTk0MDQzNzM0NywiaXNHdWVzdCI6ZmFsc2V9.dXTHbATPSxEpAVhg7jrtupTQDS3DzJPgFXtc7IQ1HKjlKniwjgjYT92YWcn76-fN3DgfJs0ElqOFhdtynzfkPJA0z3GYldBZi3o4gOhish4xbhgeVZ_C64Y4lKMGHFiwrtBke7NDaz8Es0dy13WcsA-VfRHA2kiuA7DMuqwHJ7oHXXzXiWPiMMiM7URme8I7ywnuustM-5z8nN4a2j3__nnvDbNyelkGa7g6FLCvX7EFYGmL9iwVzeHBDEKyxyDfY7rFRQBEYh-p6tB0ymBO4t5ba4ZQ2dF2mtxWgieJ3NItbQcXM6JDSvXbZ4bfV_BphnBFalbnMrbJ9F_pB7K2Pw',
+        'x-auth-token': "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTI2NzAyMzgsImV4cCI6MTcyNDIwNjIzOCwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTk0MDQzNzM0NywidXNlck5hbWUiOiLlvpfniallci1aMUs3QzNQOCIsImlzR3Vlc3QiOmZhbHNlfQ.M93ItnDyqyJCj5nNzG2iLXeF05wf7N7LchYcnrNCJ39l01R_ozckCezs_EHuM0SmrIyV_GGxu7fGJR8QFAyEWuEPihgFdzSwClGUR79wuAYx5D1EedQb57bKtOg6erPYsq2whYHyXmsJ2PhPqLWc-rELrutPC_tn-Bf9jpyt0NTtAtAEj9iybbwYeFloW_0GbzXKRxc6MpJImo6UkceGPylWFmxqqPTS5Mhj6eicGsW3-tOyEXPbGBiuWa152x2qWnKYOhPgc6gc9c60al00R31OqZ-aP9qvZNltAB6GxVeT-GrIaD_9L6Ikb-mm9GOUxs7A-8wEEce9I5GSNodhwA",
         'uuid': 'df66e508f3bcffd3',
         'channel': 'du',
-        'duToken': 'd41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
+        'duToken': 'd41d8cd9|1940437347|1692622428|89247580441d037d',
         'appVersion': '5.22.3',
         'emu': '0',
         'cookieToken': 'd41d8cd9|1940437347|1692622428|89247580441d037d',
@@ -86,7 +86,7 @@ def 得物商品查询(lastSpuId):
     }
     # data = "{\"pageSize\":40,\"brandSpuId\":null}"
     # payload = str({"pageSize":42,"brandSpuId":'null',"lastSpuId":lastSpuId})
-    payload = "{\"pageSize\":40,\"brandSpuId\":null,\"lastSpuId\":" + str(lastSpuId) + "}"
+    payload = "{\"pageSize\":9,\"brandSpuId\":null,\"lastSpuId\":" + str(lastSpuId) + "}"
     # payload = json.dumps({"pageSize": 42, "brandSpuId": 'null', "lastSpuId": lastSpuId})
     res = requests.post(url=url, data=payload, headers=headers)
     # print(res.json())
@@ -119,10 +119,10 @@ def 得物商品监控():
         'SK': '9JgSKkxfRab52YsrdOjH54LecF84HNlf5diZf1Bar21LuO2dT61f7BMr3jx71zpgBz2FenzLWbqdN4ucytOKTa9FJr1u',
         'shumeiId': '202206201105599577aec2d8302d653009c385871e64ef01dab1c9dbe482cd',
         'deviceTrait': 'Redmi+Note+8+Pro',
-        'x-auth-token': 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTI2MjI0MjgsImV4cCI6MTcyNDE1ODQyOCwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTk0MDQzNzM0NywiaXNHdWVzdCI6ZmFsc2V9.dXTHbATPSxEpAVhg7jrtupTQDS3DzJPgFXtc7IQ1HKjlKniwjgjYT92YWcn76-fN3DgfJs0ElqOFhdtynzfkPJA0z3GYldBZi3o4gOhish4xbhgeVZ_C64Y4lKMGHFiwrtBke7NDaz8Es0dy13WcsA-VfRHA2kiuA7DMuqwHJ7oHXXzXiWPiMMiM7URme8I7ywnuustM-5z8nN4a2j3__nnvDbNyelkGa7g6FLCvX7EFYGmL9iwVzeHBDEKyxyDfY7rFRQBEYh-p6tB0ymBO4t5ba4ZQ2dF2mtxWgieJ3NItbQcXM6JDSvXbZ4bfV_BphnBFalbnMrbJ9F_pB7K2Pw',
+        'x-auth-token': "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTI2NzAyMzgsImV4cCI6MTcyNDIwNjIzOCwiaXNzIjoiZGY2NmU1MDhmM2JjZmZkMyIsInN1YiI6ImRmNjZlNTA4ZjNiY2ZmZDMiLCJ1dWlkIjoiZGY2NmU1MDhmM2JjZmZkMyIsInVzZXJJZCI6MTk0MDQzNzM0NywidXNlck5hbWUiOiLlvpfniallci1aMUs3QzNQOCIsImlzR3Vlc3QiOmZhbHNlfQ.M93ItnDyqyJCj5nNzG2iLXeF05wf7N7LchYcnrNCJ39l01R_ozckCezs_EHuM0SmrIyV_GGxu7fGJR8QFAyEWuEPihgFdzSwClGUR79wuAYx5D1EedQb57bKtOg6erPYsq2whYHyXmsJ2PhPqLWc-rELrutPC_tn-Bf9jpyt0NTtAtAEj9iybbwYeFloW_0GbzXKRxc6MpJImo6UkceGPylWFmxqqPTS5Mhj6eicGsW3-tOyEXPbGBiuWa152x2qWnKYOhPgc6gc9c60al00R31OqZ-aP9qvZNltAB6GxVeT-GrIaD_9L6Ikb-mm9GOUxs7A-8wEEce9I5GSNodhwA",
         'uuid': 'df66e508f3bcffd3',
         'channel': 'du',
-        'duToken': 'd41d8cd9|1931948097|1691896335|b5af6a3a7707b4de',
+        'duToken': 'd41d8cd9|1940437347|1692622428|89247580441d037d',
         'appVersion': '5.22.3',
         'emu': '0',
         'cookieToken': 'd41d8cd9|1940437347|1692622428|89247580441d037d',
