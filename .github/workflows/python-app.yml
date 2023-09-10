@@ -31,4 +31,5 @@ jobs:
         # MY_COOKIE: ${{ secrets.MY_COOKIE_SECRET }} # 传递Secret的值给环境变量MY_COOKIE
       run: |
         # python ./试用.py
-        python ./得物新人监控.py
+        # python ./得物新人监控.py
+        python ./秒杀.py
