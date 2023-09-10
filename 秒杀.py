@@ -117,7 +117,7 @@ def 得物商品查询(lastSpuId):
         得物商品查询(lastSpuId)
     else:
         得物商品提交(lastspu)
-        time.sleep(1)
+        # time.sleep(1)
         得物商品提交(lastspu)
         得物商品提交(lastspu)
         得物商品提交(lastspu)
