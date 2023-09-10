@@ -135,6 +135,7 @@ def 得物商品查询(lastSpuId):
         for i in range(100):
             time.sleep(0.11)
             得物商品提交(lastspu)
+            time.sleep(0.2)
         send_message()  # 当res_json["data"] 是 None时,执行send_message函数并结束此函数
 
 
