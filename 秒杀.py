@@ -6,6 +6,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import json
+import time
 
 token = '126c2e9648f244ba91ac33a03a6e1bde'
 ua = UserAgent().random
@@ -116,15 +117,24 @@ def 得物商品查询(lastSpuId):
         print(f'输出最后一个id用作最后的商品查询{lastSpuId}')
         得物商品查询(lastSpuId)
     else:
-        得物商品提交(lastspu)
-        # time.sleep(1)
-        得物商品提交(lastspu)
-        得物商品提交(lastspu)
-        得物商品提交(lastspu)
-        得物商品提交(lastspu)
-        得物商品提交(lastspu)
-        得物商品提交(lastspu)
-        得物商品提交(lastspu)
+        def seconds_until_midnight():
+            # 获取当前北京时间
+            beijing_time = time.localtime(time.time() + 8 * 3600)
+        
+            # 计算到下一个凌晨0点的剩余秒数
+            seconds_passed_today = beijing_time.tm_hour * 3600 + beijing_time.tm_min * 60 + beijing_time.tm_sec
+            seconds_until_midnight = 24 * 3600 - seconds_passed_today
+        
+            return seconds_until_midnight
+        
+        # 打印距离下一个凌晨0点的剩余秒数
+        print('距离下个12点还有' + str(seconds_until_midnight()) + '秒')
+        
+        # 延迟执行，以秒为单位
+        time.sleep(seconds_until_midnight())
+        for i in range(100):
+            time.sleep(0.11)
+            得物商品提交(lastspu)
         send_message()  # 当res_json["data"] 是 None时,执行send_message函数并结束此函数
 
 
