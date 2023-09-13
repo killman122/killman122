@@ -245,6 +245,18 @@ def 得物商品提交(spuId):
     data = {"spuId": spuId}
     res = requests.post(url=url, headers=headers,json=data)
     print(res.json())
+    res = res.json()
+    if res.get('msg') == '请务重复领取!':
+        print('商品优惠卷领取成功')
+        global mail_subject
+        mail_subject = '商品优惠卷领取成功'
+        send_message()
+        sys.exit()
+    elif res.get('msg') == '不是新人了，不能领取':
+        print('商品优惠卷领取过了')
+        mail_subject = '商品优惠卷领取成功'
+        send_message()
+        sys.exit()
 
 # 得物商品提交()
 # 推送()
