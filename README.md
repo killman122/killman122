@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm killman122</h1>
-<h3 align="center">A passionate frontend developer from China</h3>
+<h3 align="center">A student developer from China</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=killman122&label=Profile%20views&color=0e75b6&style=flat" alt="killman122" /> </p>
 
